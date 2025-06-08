@@ -8,6 +8,7 @@ Create Date: ${create_date}
 from typing import Sequence, Union
 # adding sqlmodel and pgvector so migrations can run without errors (module not found)
 import sqlmodel
+import pgvector
 from alembic import op
 import sqlalchemy as sa
 ${imports if imports else ""}

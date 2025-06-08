@@ -4,13 +4,16 @@ from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 from sqlmodel import SQLModel
 from alembic import context
-
-from src.consts import DATABASE_URL
+from src.models import common, vetbot
+from dotenv import load_dotenv
+load_dotenv()
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
-config.set_main_option("sqlalchemy.url", DATABASE_URL)
+from src.consts import DATABASE_URL
+db_url = DATABASE_URL.replace("@postgres", "@localhost")
+config.set_main_option("sqlalchemy.url", db_url)
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
