@@ -16,6 +16,9 @@ def get_appointments(session: SessionDep):
     end_of_day = start_of_day + datetime.timedelta(days=1)
     order_for_date = session.exec(select(AppointmentsOrder).where(AppointmentsOrder.date == today)).first()
 
+    if not order_for_date:
+        return {"appointments": [], "order": []}
+
     appointments_for_curr_date = session.exec(select(Appointment).where(
         Appointment.arrival_time >= start_of_day,
         Appointment.arrival_time < end_of_day
@@ -61,6 +64,7 @@ def update_appointment(appointment_id: int, updatedAppointment: UpdateAppointmen
 
 @router.put("/order")
 def reorder_appointments(request: ReorderAppointmentsRequest, session: SessionDep):
+    print(1/0);
     today = request.date if request.date else date.now(datetime.timezone.utc).date()
     order_for_date = session.exec(select(AppointmentsOrder).where(AppointmentsOrder.date == today)).first()
     if not order_for_date:

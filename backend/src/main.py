@@ -1,25 +1,23 @@
 from fastapi import FastAPI
 from dotenv import load_dotenv
-
 load_dotenv()
 
-from .consts import APP_ENV
+
+from .consts import SENTRY_DSN
 from src.api.main import router as api_router
-from fastapi.middleware.cors import CORSMiddleware
+from src.core.middlewares import init_middlewares
+from src.core.error_handling import init_error_handling
+import sentry_sdk
+
+sentry_sdk.init(
+    dsn=SENTRY_DSN,
+    send_default_pii=True,
+    # environment=APP_ENV,
+)
 
 app = FastAPI()
 
-origins = [
-    "http://localhost:3000" if APP_ENV == "local" else "https://pet-care-frontend.vercel.app"
-]
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins="*", #todo change to only allow the frontend domain
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
+init_middlewares(app)
+init_error_handling(app)
 
 app.include_router(api_router)

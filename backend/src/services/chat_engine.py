@@ -27,6 +27,7 @@ async def run_chat_engine_async(question: str, id:str) -> str:
     return streaming_response
 
 async def generate_streaming_response(streaming_response: StreamingAgentChatResponse, new_id:str | None = None):
+    raise Exception("Testing sentry")
     if new_id:
         # if the conversation just started, we need to send the id to the client first
         yield f"data: {json.dumps({'id': new_id, 'content': ''})}\n\n"
