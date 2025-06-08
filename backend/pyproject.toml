@@ -7,6 +7,9 @@ requires-python = ">=3.12"
 dependencies = [
     "alembic>=1.16.1",
     "fastapi>=0.115.12",
+    "llama-index>=0.12.41",
+    "llama-index-storage-chat-store-postgres>=0.2.1",
+    "llama-index-vector-stores-postgres>=0.5.3",
     "openai>=1.84.0",
     "psycopg[binary]>=3.2.9",
     "pydantic>=2.11.5",
