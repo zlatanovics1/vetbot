@@ -46,7 +46,11 @@ export default function Chat() {
 
   return (
     <div className="flex flex-col h-[calc(100vh-8rem)]" ref={containerRef}>
-      <RenderMessages messages={messages} isLoading={isLoading} />
+      <RenderMessages
+        messages={messages}
+        isLoading={isLoading}
+        chatId={chatId}
+      />
       <SendMessage onSend={handleSendMessage} isLoading={isLoading} />
       <div ref={endRef} className="h-0" />
     </div>
