@@ -5,7 +5,7 @@ import { handleError, sortAppointments } from "@/utils";
 
 export const getAppointments = async () => {
   try {
-    const response = await fetch(`${API_URL}/appointments`);
+    const response = await fetch(`${API_URL}/appointments/`);
     const data = (await response.json()) as AppointmentResponse;
     console.log(data);
     if (!data.appointments.length) {
@@ -20,7 +20,7 @@ export const getAppointments = async () => {
 
 export const addAppointment = async (appointment: AppointmentFormData) => {
   try {
-    const response = await fetch(`${API_URL}/appointments`, {
+    const response = await fetch(`${API_URL}/appointments/`, {
       method: "POST",
       body: JSON.stringify(appointment),
       headers: {
@@ -38,7 +38,7 @@ export const updateAppointment = async (
   appointment: Partial<Appointment>
 ) => {
   try {
-    const response = await fetch(`${API_URL}/appointments/${id}`, {
+    const response = await fetch(`${API_URL}/appointments/${id}/`, {
       method: "PUT",
       body: JSON.stringify(appointment),
       headers: {

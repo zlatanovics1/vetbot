@@ -33,14 +33,25 @@ export default function Chat() {
     });
   };
 
+  const stopLoading = () => {
+    setIsLoading(false);
+  };
+
   const handleSendMessage = async (message: string) => {
     try {
       setMessages((prev) => [...prev, { role: "user", content: message }]);
       setIsLoading(true);
-      await startStreamingResponse(message, addMessageChunk, setChatId, chatId);
-      setIsLoading(false);
+      await startStreamingResponse(
+        message,
+        addMessageChunk,
+        setChatId,
+        chatId,
+        stopLoading
+      );
     } catch (error) {
       handleError(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 

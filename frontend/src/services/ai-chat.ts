@@ -5,7 +5,8 @@ export const startStreamingResponse = async (
   message: string,
   addChunk: (chunk: string) => void,
   setChatId: (id: string) => void,
-  chatId: string | null
+  chatId: string | null,
+  stopLoading: () => void
 ) => {
   try {
     const response = await fetch(
@@ -21,6 +22,7 @@ export const startStreamingResponse = async (
       throw new Error("Response body is null");
     }
 
+    stopLoading();
     const reader = response.body.getReader()!;
 
     const decoder = new TextDecoder();
