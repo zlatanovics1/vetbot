@@ -11,3 +11,13 @@ export interface Message {
   role: "user" | "assistant";
   content: string;
 }
+
+export interface AppointmentOrder {
+  order: number[];
+  date: string;
+}
+
+export interface AppointmentResponse {
+  appointments: Appointment[];
+  order: AppointmentOrder;
+}

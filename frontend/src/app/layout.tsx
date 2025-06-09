@@ -4,6 +4,7 @@ import "./globals.css";
 
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
+import { Toaster } from "sonner";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -35,6 +36,7 @@ export default function RootLayout({
           </div>
           <main className="col-start-2 pt-8 overflow-y-scroll">{children}</main>
         </div>
+        <Toaster position="top-right" />
       </body>
     </html>
   );
