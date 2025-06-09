@@ -38,7 +38,7 @@ export const updateAppointment = async (
   appointment: Partial<Appointment>
 ) => {
   try {
-    const response = await fetch(`${API_URL}/appointments/${id}/`, {
+    const response = await fetch(`${API_URL}/appointments/${id}`, {
       method: "PUT",
       body: JSON.stringify(appointment),
       headers: {

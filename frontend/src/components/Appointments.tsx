@@ -20,9 +20,14 @@ export default function Appointments({
   const handleAddAppointment = (
     newAppointment: Omit<Appointment, "id" | "done">
   ) => {
+    toast.loading("Adding appointment...", {
+      id: "add-appointment",
+    });
     addAppointmentMutation.mutate(newAppointment, {
       onSuccess: () => {
-        toast.success("Appointment added successfully");
+        toast.success("Appointment added successfully", {
+          id: "add-appointment",
+        });
       },
     });
   };
