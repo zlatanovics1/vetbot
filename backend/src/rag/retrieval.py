@@ -22,7 +22,7 @@
 from llama_index.core import VectorStoreIndex
 from llama_index.vector_stores.postgres import PGVectorStore
 from sqlalchemy import make_url
-from src.consts import DATABASE_URL
+from ..consts import DATABASE_URL
 
 url = make_url(DATABASE_URL)
 

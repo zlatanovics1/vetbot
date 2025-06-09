@@ -1,10 +1,10 @@
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import StreamingResponse
 from sqlmodel import select
-from src.rag.ingestion import ingest_data
-from src.api.deps import SessionDep
-from src.services.chat_engine import run_chat_engine_async, generate_streaming_response
-from src.models.vetbot import DataChatstore, FaqRequest, Feedback, FeedbackRequest
+from ...rag.ingestion import ingest_data
+from ...api.deps import SessionDep
+from ...services.chat_engine import run_chat_engine_async, generate_streaming_response
+from ...models.vetbot import DataChatstore, FaqRequest, Feedback, FeedbackRequest
 import uuid
 
 router = APIRouter(prefix="/faq")

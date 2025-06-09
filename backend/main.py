@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from dotenv import load_dotenv
 load_dotenv()
 from fastapi.openapi.docs import get_swagger_ui_html
-from .consts import APP_ENV, SENTRY_DSN
+from src.consts import APP_ENV, SENTRY_DSN
 from src.api.main import router as api_router
 from src.core.middlewares import init_middlewares
 from src.core.error_handling import init_error_handling

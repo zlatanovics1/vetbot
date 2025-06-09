@@ -2,7 +2,7 @@ import json
 from openevals.llm import create_llm_as_judge
 from openevals.prompts import RAG_RETRIEVAL_RELEVANCE_PROMPT
 
-from src.services.chat_engine import retrieve_context
+from ...services.chat_engine import retrieve_context
 
 retrieval_relevance_evaluator = create_llm_as_judge(
     prompt=RAG_RETRIEVAL_RELEVANCE_PROMPT,

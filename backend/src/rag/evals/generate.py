@@ -1,10 +1,10 @@
 import json
-from src.rag.utils import get_data_chunks
+from ...rag.utils import get_data_chunks
 # please uncomment this if you run the script directly, so that you can use the .env file
 # from dotenv import load_dotenv
 # load_dotenv()
 
-from src.services.openai import generate_qa_pairs
+from ...services.openai import generate_qa_pairs
 
 
 def generate_qa_dataset():
