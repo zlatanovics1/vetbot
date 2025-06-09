@@ -30,3 +30,48 @@
 #         ]
 #     )
 #     return response.choices[0].message.content
+
+from typing import List
+from openai import OpenAI
+from pydantic import BaseModel
+
+
+QA_generation_prompt = """
+    Your task is to write a 5 factoid questions and answers given a context provided by user.
+    Your factoid question should be answerable with a specific, concise piece of factual information from the context.
+    Your factoid question should be formulated in the same style as questions users could ask in a search engine.
+    This means that your factoid question MUST NOT mention something like "according to the passage" or "context".
+
+    Provide your answer as follows:
+
+    Output:::
+    [
+        {
+            "question": "...",
+            "answer": "..."
+        },
+        ...
+    ]
+"""
+
+class QAOutput(BaseModel):
+    question: str
+    answer: str
+
+class QAPair(BaseModel):
+    pairs: List[QAOutput]
+
+# llm = StructuredLLM(llm=OpenAI(), output_cls=List[QAOutput])
+openai = OpenAI()
+
+def generate_qa_pairs(context: str) -> List[QAOutput]:
+    response = openai.responses.parse(
+            model="gpt-4.1",
+            input=[
+                {"role": "system", "content": QA_generation_prompt},
+                {"role": "user", "content": "Here is the context: " + context}
+            ],
+            text_format=QAPair,
+        )
+    parsed = response.output_parsed
+    return parsed.pairs

@@ -30,7 +30,6 @@ def retrieval_relevance(question: str, context: str):
 
 
 def evaluate_retrieval_relevance():
-    
     eval_results = []
     for qa_pair in qa_pairs:
         retrieved_docs = retrieve_context(qa_pair["question"])
@@ -40,7 +39,7 @@ def evaluate_retrieval_relevance():
     #num of score True / total
     score = sum(1 for result in eval_results if result["score"] == True) / len(eval_results)
     print(f"Score: {score*100}%")
-    with open("src/rag/evals/eval_results.json", "w") as f:
+    with open("src/rag/evals/retrieval_relevance_results.json", "w") as f:
         json.dump({
         "score": score,
         "eval_results": eval_results
