@@ -4,7 +4,8 @@ import "./globals.css";
 
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
-import { Toaster } from "sonner";
+import { Providers } from "./providers";
+import { Toaster } from "react-hot-toast";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -23,21 +24,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${poppins.className} antialiased bg-gray-50 text-gray-600`}
-      >
-        <div className="max-h-screen grid grid-cols-[auto_1fr] grid-rows-[auto_1fr] ">
-          <div className="col-start-1 row-span-2">
-            <Sidebar />
+    <Providers>
+      <html lang="en">
+        <body
+          className={`${poppins.className} antialiased bg-gray-50 text-gray-600`}
+        >
+          <Toaster position="top-center" />
+          <div className="min-h-screen grid grid-cols-[auto_1fr] grid-rows-[auto_1fr] ">
+            <div className="col-start-1 row-span-2">
+              <Sidebar />
+            </div>
+            <div className="col-start-2">
+              <Header />
+            </div>
+            <main className="col-start-2 pt-8 overflow-y-scroll">
+              {children}
+            </main>
           </div>
-          <div className="col-start-2">
-            <Header />
-          </div>
-          <main className="col-start-2 pt-8 overflow-y-scroll">{children}</main>
-        </div>
-        <Toaster position="top-right" />
-      </body>
-    </html>
+        </body>
+      </html>
+    </Providers>
   );
 }

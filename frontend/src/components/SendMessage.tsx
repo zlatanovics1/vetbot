@@ -1,4 +1,5 @@
 import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
+import { useRef } from "react";
 
 export default function SendMessage({
   onSend,
@@ -7,12 +8,14 @@ export default function SendMessage({
   onSend: (message: string) => void;
   isLoading: boolean;
 }) {
+  const inputRef = useRef<HTMLInputElement>(null);
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const formData = new FormData(e.target as HTMLFormElement);
     const message = formData.get("message") as string;
     if (!message.trim()) return;
     onSend(message);
+    inputRef.current!.value = "";
   };
 
   return (
@@ -21,6 +24,7 @@ export default function SendMessage({
         <input
           type="message"
           name="message"
+          ref={inputRef}
           placeholder="Type your message..."
           className="flex-1 rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-100"
         />

@@ -4,8 +4,12 @@ import { useState } from "react";
 import SendMessage from "./SendMessage";
 import { Message } from "@/types";
 import RenderMessages from "./RenderMessages";
+import { startStreamingResponse } from "@/services/ai-chat";
+import { handleError } from "@/utils";
+import { useScrollToBottom } from "@/hooks/useScrollToBottom";
 
 export default function Chat() {
+  const [containerRef, endRef] = useScrollToBottom<HTMLDivElement>();
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
@@ -14,28 +18,37 @@ export default function Chat() {
     },
   ]);
   const [isLoading, setIsLoading] = useState(false);
+  const [chatId, setChatId] = useState<string | null>(null);
+
+  const addMessageChunk = (chunk: string) => {
+    setMessages((prev) => {
+      const lastMessage = prev[prev.length - 1];
+      if (!lastMessage || lastMessage.role !== "assistant") {
+        return [...prev, { role: "assistant", content: chunk }];
+      }
+      return [
+        ...prev.slice(0, -1),
+        { ...lastMessage, content: lastMessage.content + chunk },
+      ];
+    });
+  };
 
   const handleSendMessage = async (message: string) => {
-    setMessages((prev) => [...prev, { role: "user", content: message }]);
-    setIsLoading(true);
-
-    setTimeout(() => {
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: "assistant",
-          content:
-            "I'm a simulated response. **In the future**, I'll connect to a real AI service to provide veterinary advice.",
-        },
-      ]);
+    try {
+      setMessages((prev) => [...prev, { role: "user", content: message }]);
+      setIsLoading(true);
+      await startStreamingResponse(message, addMessageChunk, setChatId, chatId);
       setIsLoading(false);
-    }, 1000);
+    } catch (error) {
+      handleError(error);
+    }
   };
 
   return (
-    <div className="flex flex-col h-[calc(100vh-8rem)]">
+    <div className="flex flex-col h-[calc(100vh-8rem)]" ref={containerRef}>
       <RenderMessages messages={messages} isLoading={isLoading} />
       <SendMessage onSend={handleSendMessage} isLoading={isLoading} />
+      <div ref={endRef} className="h-0" />
     </div>
   );
 }

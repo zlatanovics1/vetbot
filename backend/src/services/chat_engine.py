@@ -1,7 +1,7 @@
 import json
 from llama_index.storage.chat_store.postgres import PostgresChatStore
 from llama_index.core.memory import ChatMemoryBuffer
-from llama_index.core.chat_engine.types import StreamingAgentChatResponse
+from llama_index.core.chat_engine.types import StreamingAgentChatResponse, ChatMode
 from src.consts import DATABASE_URL
 from src.rag.retrieval import index
 
@@ -24,6 +24,7 @@ async def run_chat_engine_async(question: str, id:str) -> str:
     chat_engine = index.as_chat_engine(
     memory=chat_memory,
     verbose=True,
+    # chat_mode=ChatMode.CONTEXT,
     # enabling hybrid search for more accurate results, as many questions should include a keyword from the context
     vector_store_query_mode="hybrid"
     )
@@ -31,7 +32,6 @@ async def run_chat_engine_async(question: str, id:str) -> str:
     return streaming_response
 
 async def generate_streaming_response(streaming_response: StreamingAgentChatResponse, new_id:str | None = None):
-    raise Exception("Testing sentry")
     if new_id:
         # if the conversation just started, we need to send the id to the client first
         yield f"data: {json.dumps({'id': new_id, 'content': ''})}\n\n"

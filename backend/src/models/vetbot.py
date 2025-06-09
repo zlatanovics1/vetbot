@@ -1,11 +1,12 @@
 from enum import Enum as EnumType
-from typing import List, Optional
+from typing import List, Optional, Dict, Any
 from pgvector.sqlalchemy import Vector
 from sqlmodel import SQLModel, Field, Column, ARRAY, Enum, Relationship, String, Index, JSON, BigInteger
 from sqlalchemy.ext.mutable import MutableList
 from sqlalchemy.dialects.postgresql import TSVECTOR
 from pydantic import BaseModel
 import datetime
+from sqlalchemy.dialects.postgresql import JSONB
 
 class DataDocuments(SQLModel, table=True):
     __tablename__ = "data_documents"
@@ -49,9 +50,9 @@ class DataChatstore(SQLModel, table=True):
 
     id: int = Field(default=None, primary_key=True)
     key: str = Field(index=True, unique=True)
-    value: Optional[List[str]] = Field(
-        default_factory=List[str],
-        sa_column=Column(MutableList.as_mutable(ARRAY(String)))
+    value: Optional[List[Dict[str, Any]]] = Field(
+        default_factory=List[Dict[str, Any]],
+        sa_column=Column(MutableList.as_mutable(ARRAY(JSONB)))
     )
     feedback: Optional["Feedback"] = Relationship(back_populates="chat", sa_relationship_kwargs={"uselist": False})
 

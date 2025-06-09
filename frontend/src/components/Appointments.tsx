@@ -1,38 +1,39 @@
 "use client";
-import { useState } from "react";
 import { Appointment } from "@/types";
 import AddAppointment from "./AddAppointment";
 import WaitingList from "./WaitingList";
+import { useAppointments } from "@/hooks/useAppointments";
+import { toast } from "react-hot-toast";
 
 export default function Appointments({
   initialAppointments,
 }: {
-  initialAppointments: Appointment[];
+  initialAppointments: Appointment[] | null;
 }) {
-  const [appointments, setAppointments] =
-    useState<Appointment[]>(initialAppointments);
+  const {
+    appointmentsData,
+    addAppointmentMutation,
+    updateAppointmentMutation,
+    reorderAppointmentsMutation,
+  } = useAppointments(initialAppointments);
 
   const handleAddAppointment = (
     newAppointment: Omit<Appointment, "id" | "done">
   ) => {
-    setAppointments([
-      ...appointments,
-      { ...newAppointment, id: appointments.length + 1, done: false },
-    ]);
+    addAppointmentMutation.mutate(newAppointment, {
+      onSuccess: () => {
+        toast.success("Appointment added successfully");
+      },
+    });
   };
 
   const handleReorder = (result: Appointment[]) => {
-    setAppointments(result);
+    const ids = result.map((appointment) => appointment.id);
+    reorderAppointmentsMutation.mutate(ids);
   };
 
   const handleMarkDone = (id: number) => {
-    setAppointments(
-      appointments.map((appointment) =>
-        appointment.id === id
-          ? { ...appointment, done: !appointment.done }
-          : appointment
-      )
-    );
+    updateAppointmentMutation.mutate({ id, data: { done: true } });
   };
 
   return (
@@ -44,11 +45,15 @@ export default function Appointments({
 
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h2 className="text-xl font-semibold mb-4">Today's Waiting List</h2>
-          <WaitingList
-            appointments={appointments}
-            onReorder={handleReorder}
-            handleMarkDone={handleMarkDone}
-          />
+          {appointmentsData ? (
+            <WaitingList
+              appointments={appointmentsData}
+              onReorder={handleReorder}
+              handleMarkDone={handleMarkDone}
+            />
+          ) : (
+            <p className="text-gray-500">No appointments for today :)</p>
+          )}
         </div>
       </div>
     </div>

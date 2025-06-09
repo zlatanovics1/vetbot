@@ -12,7 +12,7 @@ import { useState } from "react";
 
 export default function Sidebar() {
   const pathname = usePathname();
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
 
   const isActive = (path: string) => pathname === path;
 

@@ -14,14 +14,21 @@ export default function AddAppointment({
   const {
     register,
     handleSubmit,
-    formState: { errors },
+
+    formState: { errors, isSubmitting },
+    reset,
   } = useForm<AppointmentFormData>({
     resolver: zodResolver(appointmentSchema),
   });
 
+  const handleFormSubmit = (data: AppointmentFormData) => {
+    onSubmit(data);
+    reset();
+  };
+
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(handleFormSubmit)}
       className="bg-white p-6 rounded-lg shadow-md mb-8"
     >
       <h2 className="text-xl font-semibold mb-4">Add New Appointment</h2>
@@ -91,7 +98,7 @@ export default function AddAppointment({
         type="submit"
         className="mt-4 w-full cursor-pointer bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
       >
-        Add Appointment
+        {isSubmitting ? "Adding..." : "Add Appointment"}
       </button>
     </form>
   );

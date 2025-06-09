@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import StreamingResponse
 from sqlmodel import select
+from src.rag.ingestion import ingest_data
 from src.api.deps import SessionDep
 from src.services.chat_engine import run_chat_engine_async, generate_streaming_response
 from src.models.vetbot import DataChatstore, FaqRequest, Feedback, FeedbackRequest
@@ -8,9 +9,13 @@ import uuid
 
 router = APIRouter(prefix="/faq")
 
+
+# @router.get("/ingest")
+# def ingest():
+#     return ingest_data()
 # generate answer using pet care faq knowledge base
 # id is used to track the conversation, if not provided, a new conversation is created
-@router.post("/")
+@router.post("")
 async def faq(request: FaqRequest, id: str | None = None):
     # streaming response
     conversation_id = id if id is not None else str(uuid.uuid4())

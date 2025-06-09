@@ -18,6 +18,13 @@ def init_error_handling(app: FastAPI):
     
     @app.exception_handler(RequestValidationError)
     async def request_validation_exception_handler(request: Request, exc: RequestValidationError):
+        logger.warning(
+            f"Request validation error during {request.method} {request.url.path}",
+            extra={
+                "headers": dict(request.headers),
+                "detail": exc.errors()
+            }
+        )
         return JSONResponse(
             status_code=422,
             content={"detail": exc.errors()}
@@ -25,6 +32,14 @@ def init_error_handling(app: FastAPI):
     
     @app.exception_handler(Exception)
     async def global_exception_handler(request: Request, exc: Exception):
+        logger.error(
+            f"Unexpected error during {request.method} {request.url.path}",
+            extra={
+                "headers": dict(request.headers),
+                "detail": str(exc)
+            },
+            exc_info=True
+        )
         return JSONResponse(
             status_code=500,
             content={

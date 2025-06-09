@@ -1,4 +1,5 @@
-import { toast } from "sonner";
+import { AppointmentResponse } from "./types";
+import { toast } from "react-hot-toast";
 
 export const formatDateTime = (isoString: string) => {
   const date = new Date(isoString);
@@ -13,8 +14,16 @@ export const formatDateTime = (isoString: string) => {
 
 export const handleError = (error: unknown) => {
   if (error instanceof Error) {
+    console.error(error);
     toast.error(error.message);
   } else {
     toast.error("An unknown error occurred");
   }
+};
+
+export const sortAppointments = (data: AppointmentResponse) => {
+  const sortedAppointments = data.order.map(
+    (id) => data.appointments.find((a) => a.id === id)!
+  );
+  return sortedAppointments;
 };

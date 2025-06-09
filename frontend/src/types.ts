@@ -12,12 +12,7 @@ export interface Message {
   content: string;
 }
 
-export interface AppointmentOrder {
-  order: number[];
-  date: string;
-}
-
 export interface AppointmentResponse {
   appointments: Appointment[];
-  order: AppointmentOrder;
+  order: number[];
 }

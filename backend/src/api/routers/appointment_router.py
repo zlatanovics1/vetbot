@@ -25,7 +25,6 @@ def get_appointments(session: SessionDep):
     )).all()
     return {"appointments": appointments_for_curr_date,"order": order_for_date.order}
 
-
 @router.post("/")
 def create_appointment(appointment: AppointmentRequest, session: SessionDep):
     # convert to utc time, much easier to work with in the database (no timezone issues) and easy to convert back to local time on the frontend
@@ -49,6 +48,20 @@ def create_appointment(appointment: AppointmentRequest, session: SessionDep):
     session.refresh(order_for_date)
     return appointment
 
+@router.put("/order")
+def reorder_appointments(request: ReorderAppointmentsRequest, session: SessionDep):
+    print("Received request:", request.model_dump())
+    today = request.date if request.date else date.now(datetime.timezone.utc).date()
+    print("Using date:", today)
+    order_for_date = session.exec(select(AppointmentsOrder).where(AppointmentsOrder.date == today)).first()
+    if not order_for_date:
+        raise HTTPException(status_code=404, detail="Appointments order not found")
+    
+    order_for_date.order = request.order
+    session.commit()
+    session.refresh(order_for_date)
+    return order_for_date
+
 @router.put("/{appointment_id}")
 def update_appointment(appointment_id: int, updatedAppointment: UpdateAppointmentRequest, session: SessionDep):
     appointment = session.get(Appointment, appointment_id)
@@ -61,16 +74,3 @@ def update_appointment(appointment_id: int, updatedAppointment: UpdateAppointmen
     session.commit()
     session.refresh(appointment)
     return appointment
-
-@router.put("/order")
-def reorder_appointments(request: ReorderAppointmentsRequest, session: SessionDep):
-    print(1/0);
-    today = request.date if request.date else date.now(datetime.timezone.utc).date()
-    order_for_date = session.exec(select(AppointmentsOrder).where(AppointmentsOrder.date == today)).first()
-    if not order_for_date:
-        raise HTTPException(status_code=404, detail="Appointments order not found")
-    
-    order_for_date.order = request.order
-    session.commit()
-    session.refresh(order_for_date)
-    return order_for_date
