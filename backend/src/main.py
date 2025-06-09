@@ -20,4 +20,4 @@ app = FastAPI()
 init_middlewares(app)
 init_error_handling(app)
 
-app.include_router(api_router)
+app.include_router(api_router) 

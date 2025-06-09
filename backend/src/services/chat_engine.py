@@ -10,6 +10,10 @@ chat_store = PostgresChatStore.from_uri(
   db_url,
 )
 
+def retrieve_context(question: str):
+    engine = index.as_retriever()
+    return engine.retrieve(question)
+
 async def run_chat_engine_async(question: str, id:str) -> str:
     chat_memory = ChatMemoryBuffer.from_defaults(
     token_limit=3000,

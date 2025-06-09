@@ -1,0 +1,290 @@
+[
+  {
+    "question": "When should my puppy get vaccines?",
+    "answer": "Puppies should start vaccines at 6–8 weeks old, then get boosters every 3–4 weeks until at least 16 weeks. Core shots include distemper, adenovirus, parvo, and rabies. Boosters are given yearly or every three years depending on local laws and vaccine type."
+  },
+  {
+    "question": "How often do dogs need deworming?",
+    "answer": "Puppies should be dewormed every 2 weeks until they are 12 weeks old, then monthly until 6 months. Adult dogs need deworming at least every 3–6 months, or as advised after a stool test by your vet."
+  },
+  {
+    "question": "What flea and tick prevention works best for dogs?",
+    "answer": "Effective options include spot-on treatments, oral tablets, or collars. The best choice is one your vet confirms is safe for your dog's age and health, and that you can give on time every month."
+  },
+  {
+    "question": "How much should I feed my dog?",
+    "answer": "Use the feeding chart on your dog food bag as a guide according to your dog’s weight. Adjust if your dog gains or loses body condition—a healthy dog’s ribs should be easy to feel and they should have a visible waist from above."
+  },
+  {
+    "question": "Can dogs eat bones?",
+    "answer": "Dogs can have raw, meaty bones that are too large to swallow and only under supervision. Never give cooked bones, as they can splinter and cause serious harm."
+  },
+  {
+    "question": "Are grain-free diets healthier for dogs?",
+    "answer": "Not necessarily. Some grain‑free dog foods are linked to heart disease in certain breeds. Always consult your veterinarian before switching to a grain-free diet."
+  },
+  {
+    "question": "How often should I bathe my dog?",
+    "answer": "Most dogs need a bath every 4–6 weeks. Over-bathing can dry skin unless your vet prescribes medicated shampoos."
+  },
+  {
+    "question": "Do I need to brush my dog’s teeth?",
+    "answer": "Yes, ideally daily. Dental chews help, but brushing is the gold standard to prevent tartar and gum disease."
+  },
+  {
+    "question": "When can I start training a puppy?",
+    "answer": "Right away. Even eight-week-old pups can learn sit, come, and crate routines using positive rewards."
+  },
+  {
+    "question": "How do I stop my dog from pulling on walks?",
+    "answer": "Use a front-clip harness and reward the dog for walking by your side. Stop moving when the leash tightens, resume when slack returns."
+  },
+  {
+    "question": "What are early signs of kennel cough?",
+    "answer": "A dry, honking cough, sometimes with a runny nose but no fever. See a vet if coughing lasts more than a few days."
+  },
+  {
+    "question": "My dog is limping—should I see a vet right away?",
+    "answer": "Yes if the limp is sudden, severe, or your dog won’t bear weight. Mild limps that improve in 24 hours can be monitored."
+  },
+  {
+    "question": "At what age is my dog considered senior?",
+    "answer": "Small breeds: ~8–10 years, large/giant breeds: ~6–7 years."
+  },
+  {
+    "question": "How often should senior dogs have check-ups?",
+    "answer": "Twice a year for full exams, bloodwork, and dental checks help catch issues early."
+  },
+  {
+    "question": "What should be in a dog first-aid kit?",
+    "answer": "Gauze, adhesive tape, non-stick pads, digital thermometer (°C), tick remover, saline, blunt-tip scissors, and vet contact info."
+  },
+  {
+    "question": "Do indoor cats need vaccines?",
+    "answer": "Yes. Even if cats are strictly indoor, they still need core vaccines—panleukopenia, calicivirus, herpesvirus, and rabies—to remain protected."
+  },
+  {
+    "question": "How often should I treat my cat for worms and fleas?",
+    "answer": "Treat your cat monthly with spot-on or oral preventives to keep parasites like worms and fleas at bay. Indoor cats can still be exposed via people or other pets."
+  },
+  {
+    "question": "Is wet or dry food better for cats?",
+    "answer": "Wet food helps with hydration and weight control, while dry food may benefit dental health. Many veterinarians recommend offering a mix of both."
+  },
+  {
+    "question": "How can I prevent my cat from becoming obese?",
+    "answer": "Weigh food with a kitchen scale, feed by your cat's calorie needs (around 30–35 kcal per kg of ideal weight daily), and play with your cat for at least 10 minutes twice a day."
+  },
+  {
+    "question": "Do cats need baths?",
+    "answer": "Generally, cats—especially short-haired ones—do not need baths because they self-clean. Long-haired breeds may require occasional baths and should be brushed daily to prevent matting."
+  },
+  {
+    "question": "How often should I trim my cat’s nails?",
+    "answer": "Cat nails should be trimmed every 2–4 weeks. Start nail trims when your cat is young to get them used to paw handling."
+  },
+  {
+    "question": "Why does my cat scratch the furniture?",
+    "answer": "Scratching helps cats shed nail sheaths and mark their territory. Offer sturdy scratching posts and reward your cat when they use them."
+  },
+  {
+    "question": "How can I reduce my cat’s spraying behavior?",
+    "answer": "Neuter your cat before it reaches sexual maturity, keep litter boxes clean, and minimize stress by providing each cat with separate resources."
+  },
+  {
+    "question": "What are common signs of urinary blockage in cats?",
+    "answer": "Frequent attempts to urinate with little or no output, yowling, and licking the genital area. It is a medical emergency—contact your vet immediately."
+  },
+  {
+    "question": "Is it normal for my cat to vomit hairballs frequently?",
+    "answer": "Occasional hairballs are normal, but if it happens more than once a week, see your vet. Regular brushing and hairball-control diets can help."
+  },
+  {
+    "question": "At what age is a cat considered a senior?",
+    "answer": "Cats are generally considered seniors around 11 years old."
+  },
+  {
+    "question": "How can I tell if my cat has arthritis?",
+    "answer": "Look for reduced jumping, overgrown nails (due to less scratching), and stiffness after resting. Your vet can recommend pain relief and supportive options."
+  },
+  {
+    "question": "What should I do if my cat eats a toxic plant?",
+    "answer": "Remove any plant pieces from the mouth, keep your cat calm, and contact your vet with the plant's name. Do not induce vomiting unless specifically instructed by your vet."
+  },
+  {
+    "question": "How much space does a rabbit need for its enclosure?",
+    "answer": "A rabbit should have at least 3 m² of combined run and hutch space, plus daily time to run free indoors or in a secure yard."
+  },
+  {
+    "question": "What is the main dietary composition for rabbits?",
+    "answer": "A rabbit's main diet should be 85% grass hay, 10% mixed leafy greens, and 5% pellets, with treats like carrot slices only given a few times a week."
+  },
+  {
+    "question": "Do rabbits require vaccinations?",
+    "answer": "Yes, rabbits need vaccinations against myxomatosis and rabbit hemorrhagic disease. Check with your veterinarian for the recommended local schedule."
+  },
+  {
+    "question": "What could cause a rabbit's chin to be wet?",
+    "answer": "A wet chin may be due to dental overgrowth, which can cause drooling. It's important to have a veterinarian check your rabbit's teeth."
+  },
+  {
+    "question": "Why do guinea pigs require vitamin C supplementation?",
+    "answer": "Guinea pigs cannot produce vitamin C on their own, so they need fresh bell peppers or greens daily, or a stabilized vitamin C tablet added to their diet."
+  },
+  {
+    "question": "How often should guinea pigs' nails be trimmed?",
+    "answer": "Guinea pigs' nails should be trimmed every 4–6 weeks to prevent painful splaying."
+  },
+  {
+    "question": "Is cotton wool safe for hamster bedding?",
+    "answer": "No, it can wrap around limbs. Use plain paper bedding."
+  },
+  {
+    "question": "My hamster is awake during the night—is that okay?",
+    "answer": "Yes, hamsters are nocturnal. Handle them at dusk when they naturally wake."
+  },
+  {
+    "question": "How big should a budgie cage be?",
+    "answer": "Minimum 60 cm × 45 cm × 45 cm for one budgie, larger if possible, with daily out‑of‑cage flight in a safe room."
+  },
+  {
+    "question": "Are seed‑only diets healthy for pet birds?",
+    "answer": "No. Mix quality pellets (50–70 %), fresh veggies, and limited seed treats to avoid obesity and vitamin A deficiency."
+  },
+  {
+    "question": "Why is my parrot plucking feathers?",
+    "answer": "Could be boredom, low humidity, or illness. Increase enrichment and see an avian vet for work‑up."
+  },
+  {
+    "question": "What are signs of a sick bird?",
+    "answer": "Fluffed feathers, sitting low on the perch, closed eyes, reduced chirping, or changes in droppings. Birds hide illness—act fast."
+  },
+  {
+    "question": "What temperature should a bearded dragon basking spot be?",
+    "answer": "38–42 °C in the basking zone, 24–28 °C in the cool end."
+  },
+  {
+    "question": "Do turtles need UV‑B light?",
+    "answer": "Yes, 10–12 hours daily for shell and bone health."
+  },
+  {
+    "question": "Can I feed iceberg lettuce to reptiles?",
+    "answer": "It’s mostly water and low in nutrients. Use dark leafy greens like kale, collard, or dandelion."
+  },
+  {
+    "question": "Why is my turtle’s shell soft?",
+    "answer": "Could be metabolic bone disease from lack of calcium or UV‑B. See a reptile vet."
+  },
+  {
+    "question": "How often should I change the water in my fish tank?",
+    "answer": "Replace 10–20% of the aquarium water each week to help keep ammonia and nitrate levels low."
+  },
+  {
+    "question": "What does it mean if my goldfish is gasping at the water surface?",
+    "answer": "This usually indicates low oxygen or high toxin levels in the water. Test your water, increase aeration, and perform a partial water change right away."
+  },
+  {
+    "question": "How can I safely travel by car with my pet?",
+    "answer": "Use a secure carrier or harness, acclimate your pet with short practice trips, avoid feeding just before leaving, and make sure water is always available during the journey."
+  },
+  {
+    "question": "Can I take pets with me in an airplane cabin?",
+    "answer": "Small dogs, cats, and some rabbits can travel in-cabin with approved carriers. Book your ticket early, bring necessary paperwork, and only use sedatives if approved by a veterinarian."
+  },
+  {
+    "question": "What common human foods are toxic to pets?",
+    "answer": "Chocolate, grapes and raisins, onions, garlic, xylitol (a sweetener), and alcohol are all toxic to pets."
+  },
+  {
+    "question": "Which houseplants are dangerous for pets?",
+    "answer": "Keep pets away from lilies (which are fatal to cats), poinsettia, philodendron, aloe, and sago palm plants."
+  },
+  {
+    "question": "What emergency signs should prompt an immediate vet visit?",
+    "answer": "Trouble breathing, seizures, collapse, uncontrolled bleeding, or ingestion of a known toxin are red-flag signs needing urgent vet attention."
+  },
+  {
+    "question": "How do you perform CPR on a dog or cat?",
+    "answer": "Lay the pet on its right side, compress the chest at its widest point 100–120 times per minute, and give 2 breaths after every 30 compressions. Seek veterinary help as soon as possible."
+  },
+  {
+    "question": "How often should healthy adult pets see a vet?",
+    "answer": "Healthy adult pets should have annual check-ups; seniors or pets with chronic conditions should visit the vet twice per year."
+  },
+  {
+    "question": "When should you consider euthanasia for a pet?",
+    "answer": "Use quality-of-life scales to evaluate pain, appetite, mobility, and enjoyment. When bad days consistently outnumber good ones, consult your veterinarian about humane euthanasia."
+  },
+  {
+    "question": "Can you be with your pet during euthanasia?",
+    "answer": "Yes, most clinics allow owners to be present. The procedure is painless: the pet first gets a calming injection and then a final solution that stops the heart."
+  },
+  {
+    "question": "When should core vaccines be started for different pets?",
+    "answer": "Core vaccines start at 6–8 weeks for dogs, 8 weeks for cats, and 5 weeks (RHD) for rabbits. There are no core vaccines for guinea pigs."
+  },
+  {
+    "question": "How often should adult pets get vaccine boosters?",
+    "answer": "Dogs and cats should receive vaccine boosters every 1–3 years; rabbits should get boosters annually. There are no recommended boosters for guinea pigs."
+  },
+  {
+    "question": "How often should you get dental checks for various pets?",
+    "answer": "Dogs and cats: yearly. Rabbits and guinea pigs: every 6 months."
+  },
+  {
+    "question": "What are essential items in a pet first-aid kit?",
+    "answer": "Essential items include gauze rolls, non-stick pads, self-adhesive bandage wrap, blunt scissors, tweezers, a tick remover tool, saline or sterile eyewash, antiseptic wipes, a digital (rectal) thermometer, an instant cold pack, a muzzle or soft towel for handling, and a vet contact card with the poison control number."
+  },
+  {
+    "question": "What topics does the VetBot Knowledge Base cover?",
+    "answer": "The VetBot Knowledge Base covers a wide range of pet-care topics, including: General Wellness & Preventive Care, Nutrition & Feeding Guidelines, Behavior & Enrichment, Grooming & Hygiene, Life-Stage Considerations, Species-Specific Health Issues, Emergency & First Aid, Medications & Supplements, Travel & Relocation, Post-Surgery & Recovery, and End-of-Life & Palliative Care."
+  },
+  {
+    "question": "Where can I find information about pet nutrition in the VetBot Knowledge Base?",
+    "answer": "Information about pet nutrition can be found in section 2 of the VetBot Knowledge Base, titled 'Nutrition & Feeding Guidelines.'"
+  },
+  {
+    "question": "Does the VetBot Knowledge Base include emergency care information for pets?",
+    "answer": "Yes, emergency care information is included under section 7, 'Emergency & First Aid,' in the VetBot Knowledge Base."
+  },
+  {
+    "question": "Is there any guidance for pet care after surgery?",
+    "answer": "Yes, post-surgical care and recovery information is available in section 10, 'Post-Surgery & Recovery,' of the VetBot Knowledge Base."
+  },
+  {
+    "question": "Does the Knowledge Base address end-of-life care for pets?",
+    "answer": "Yes, end-of-life and palliative care information can be found in section 11, 'End-of-Life & Palliative Care,' in the VetBot Knowledge Base."
+  },
+  {
+    "question": "What are some key topics covered in the document based on the section headers?",
+    "answer": "The document covers the following key topics: grooming and hygiene, life-stage considerations, species-specific health issues, emergency and first aid, and medications and supplements."
+  },
+  {
+    "question": "How might the section on 'Life‑Stage Considerations' be relevant when caring for an animal?",
+    "answer": "The 'Life‑Stage Considerations' section is likely to provide information about the different needs animals have at various stages of their lives, such as puppy/kitten, adult, and senior stages. This can help caregivers tailor their care routines to meet the specific nutritional, health, and activity requirements of animals as they age."
+  },
+  {
+    "question": "What is the probable focus of the 'Emergency & First Aid' section?",
+    "answer": "The 'Emergency & First Aid' section most likely deals with procedures and advice for handling animal health emergencies, including how to recognize and respond to common crises and injuries before professional veterinary help is available."
+  },
+  {
+    "question": "Why might 'Species‑Specific Health Issues' be an important section in an animal care guide?",
+    "answer": "This section is important because different animal species—as well as different breeds—can have unique health concerns or conditions that are not seen in other species. This information helps ensure that care is appropriate and preventive measures are in place for these specific issues."
+  },
+  {
+    "question": "What type of information might be included in the 'Medications & Supplements' section?",
+    "answer": "The 'Medications & Supplements' section would likely cover commonly used drugs, treatments, and nutritional supplements for animals. It may also discuss safe usage, dosage, possible side effects, and when to consult a veterinarian."
+  },
+  {
+    "question": "What should I consider when preparing for travel or relocation after surgery?",
+    "answer": "When preparing for travel or relocation after surgery, consider your recovery timeline, whether it is safe to travel based on your surgeon’s recommendations, medications you need to bring, accessibility at your destination, and how to manage follow-up care. Ensure you have contact information for your healthcare provider in case any issues arise."
+  },
+  {
+    "question": "What are key aspects of post‑surgery and recovery care?",
+    "answer": "Key aspects include following your healthcare provider’s instructions regarding wound care, medication, activity restrictions, diet, pain management, and watching for signs of complications such as infection. Regular check-ups and communicating any concerns to your care team are vital for safe recovery."
+  },
+  {
+    "question": "What is the focus of end‑of‑life and palliative care?",
+    "answer": "End-of-life and palliative care focus on improving quality of life for individuals with serious illnesses by managing symptoms and providing emotional, psychosocial, and spiritual support. This care can help patients and families make decisions that align with their values and wishes, and may be provided at home, in hospice, or medical facilities."
+  }
+]

@@ -11,6 +11,7 @@ dependencies = [
     "llama-index-storage-chat-store-postgres>=0.2.1",
     "llama-index-vector-stores-postgres>=0.5.3",
     "openai>=1.84.0",
+    "openevals>=0.1.0",
     "pgvector>=0.4.1",
     "psycopg[binary]>=3.2.9",
     "pydantic>=2.11.5",
@@ -18,4 +19,9 @@ dependencies = [
     "sentry-sdk[fastapi]>=2.29.1",
     "sqlmodel>=0.0.24",
     "uvicorn>=0.34.3",
+]
+
+[dependency-groups]
+dev = [
+    "openevals>=0.1.0",
 ]

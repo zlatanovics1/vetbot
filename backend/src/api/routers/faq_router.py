@@ -2,16 +2,11 @@ from fastapi import APIRouter, HTTPException
 from fastapi.responses import StreamingResponse
 from sqlmodel import select
 from src.api.deps import SessionDep
-from src.rag.ingestion import ingest_data
 from src.services.chat_engine import run_chat_engine_async, generate_streaming_response
 from src.models.vetbot import DataChatstore, FaqRequest, Feedback, FeedbackRequest
 import uuid
 
 router = APIRouter(prefix="/faq")
-
-@router.get("/test")
-def test():
-    return ingest_data();
 
 # generate answer using pet care faq knowledge base
 # id is used to track the conversation, if not provided, a new conversation is created
@@ -46,11 +41,3 @@ def feedback(request: FeedbackRequest, session: SessionDep):
     session.commit()
     session.refresh(feedback)
     return {"message": "Feedback received"}
-
-
-# @router.get("/chat")
-# def get_chat_history():
-#     statement = text("SELECT value FROM data_chatstore where key = 'user1'")
-#     chats = db.execute(statement).fetchone()
-#     print(chats[0]);
-#     return "lol"
