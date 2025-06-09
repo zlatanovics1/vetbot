@@ -21,7 +21,7 @@ def generate_qa_dataset():
 
     # create a json file with the qa pairs
     print(qa_pairs)
-    with open("src/rag/evals/qa_pairs.json", "w") as f:
+    with open("app/src/rag/evals/qa_pairs.json", "w") as f:
         json.dump(qa_pairs, f, default=str)
     return qa_pairs
 

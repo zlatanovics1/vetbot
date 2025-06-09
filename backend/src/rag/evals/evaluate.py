@@ -9,7 +9,7 @@ retrieval_relevance_evaluator = create_llm_as_judge(
     feedback_key="retrieval_relevance",
     model="openai:o3-mini",
 )
-with open("src/rag/evals/qa_pairs.json", "r") as f:
+with open("app/src/rag/evals/qa_pairs.json", "r") as f:
         qa_pairs = json.load(f)
 
 def retrieval_relevance(question: str, context: str):
@@ -39,7 +39,7 @@ def evaluate_retrieval_relevance():
     #num of score True / total
     score = sum(1 for result in eval_results if result["score"] == True) / len(eval_results)
     print(f"Score: {score*100}%")
-    with open("src/rag/evals/retrieval_relevance_results.json", "w") as f:
+    with open("app/src/rag/evals/retrieval_relevance_results.json", "w") as f:
         json.dump({
         "score": score,
         "eval_results": eval_results
