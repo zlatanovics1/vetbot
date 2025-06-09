@@ -15,12 +15,12 @@ def init_middlewares(app: FastAPI):
         return response
 
     origins = [
-    "http://localhost:3000" if APP_ENV == "local" else "https://vetbot.vercel.app"
+    "http://localhost:3000" if APP_ENV == "local" else "https://vetbot-jade.vercel.app"
     ]
 
     app.add_middleware(
         CORSMiddleware,
-        allow_origins="*",
+        allow_origins=origins,
         allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],
