@@ -11,6 +11,9 @@ date = datetime.datetime
 
 @router.get("/")
 def get_appointments(session: SessionDep):
+    """
+    Get appointments for the current day.
+    """
     today = date.now(datetime.timezone.utc).date()
     start_of_day = date.combine(today, date.min.time())
     end_of_day = start_of_day + datetime.timedelta(days=1)
@@ -27,6 +30,9 @@ def get_appointments(session: SessionDep):
 
 @router.post("/")
 def create_appointment(appointment: AppointmentRequest, session: SessionDep):
+    """
+    Create an appointment. Adds it to the end of the appointment order for the day.
+    """
     # convert to utc time, much easier to work with in the database (no timezone issues) and easy to convert back to local time on the frontend
     utc_time = appointment.arrival_time.replace(tzinfo=datetime.timezone.utc)
     # get the date without time for the appointment order
@@ -50,9 +56,13 @@ def create_appointment(appointment: AppointmentRequest, session: SessionDep):
 
 @router.put("/order")
 def reorder_appointments(request: ReorderAppointmentsRequest, session: SessionDep):
-    print("Received request:", request.model_dump())
+    """
+    Reorder appointments for a given date - updates array of ids in the order table.
+    If no date is provided, the current day is used.
+
+    """
     today = request.date if request.date else date.now(datetime.timezone.utc).date()
-    print("Using date:", today)
+
     order_for_date = session.exec(select(AppointmentsOrder).where(AppointmentsOrder.date == today)).first()
     if not order_for_date:
         raise HTTPException(status_code=404, detail="Appointments order not found")
@@ -64,6 +74,10 @@ def reorder_appointments(request: ReorderAppointmentsRequest, session: SessionDe
 
 @router.put("/{appointment_id}")
 def update_appointment(appointment_id: int, updatedAppointment: UpdateAppointmentRequest, session: SessionDep):
+    """
+    Update an appointment.
+    For now, only used for updating done field
+    """
     appointment = session.get(Appointment, appointment_id)
     if not appointment:
         raise HTTPException(status_code=404, detail="Appointment not found")

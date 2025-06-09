@@ -4,9 +4,9 @@ from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 from sqlmodel import SQLModel
 from alembic import context
-from ..src.models import common, vetbot
-from dotenv import load_dotenv
-load_dotenv()
+from src.models import common, vetbot
+# from dotenv import load_dotenv
+# load_dotenv()
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

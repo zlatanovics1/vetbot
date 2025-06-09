@@ -3,4 +3,6 @@ __pycache__/
 .git
 .gitignore
 .env*
-
+src/rag/data/
+src/rag/evals/
+src/rag/ingestion.py

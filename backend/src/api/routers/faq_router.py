@@ -1,10 +1,10 @@
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import StreamingResponse
 from sqlmodel import select
-from ...rag.ingestion import ingest_data
-from ...api.deps import SessionDep
-from ...services.chat_engine import run_chat_engine_async, generate_streaming_response
-from ...models.vetbot import DataChatstore, FaqRequest, Feedback, FeedbackRequest
+# from src.rag.ingestion import ingest_data
+from src.api.deps import SessionDep
+from src.services.chat_engine import run_chat_engine_async, generate_streaming_response
+from src.models.vetbot import DataChatstore, FaqRequest, Feedback, FeedbackRequest
 import uuid
 
 router = APIRouter(prefix="/faq")
@@ -17,6 +17,10 @@ router = APIRouter(prefix="/faq")
 # id is used to track the conversation, if not provided, a new conversation is created
 @router.post("")
 async def faq(request: FaqRequest, id: str | None = None):
+    """
+    Generate answer using pet care faq knowledge base
+    id is used to track the conversation, if not provided, a new conversation is created
+    """
     # streaming response
     conversation_id = id if id is not None else str(uuid.uuid4())
 
@@ -33,8 +37,11 @@ async def faq(request: FaqRequest, id: str | None = None):
 
 @router.post("/feedback")
 def feedback(request: FeedbackRequest, session: SessionDep):
+    """
+    Submit feedback for a given conversation
+    """
     # check if chat_id exists in the database
-    chat = session.exec(select(DataChatstore).where(DataChatstore.key == request.chat_id)).first()
+    chat =  session.exec(select(DataChatstore).where(DataChatstore.key == request.chat_id)).first()
     if not chat:
         raise HTTPException(status_code=404, detail="Chat not found")
     

@@ -6,6 +6,7 @@ ENV UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy
 # across both images. If using a managed Python version, it needs to be
 # copied from the build image into the final image
 ENV UV_PYTHON_DOWNLOADS=0
+
 # ENV PORT=8080
 
 WORKDIR /app

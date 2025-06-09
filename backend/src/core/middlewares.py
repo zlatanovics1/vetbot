@@ -15,12 +15,12 @@ def init_middlewares(app: FastAPI):
         return response
 
     origins = [
-    "http://localhost:3000" if APP_ENV == "local" else "https://pet-care-frontend.vercel.app"
+    "http://localhost:3000" if APP_ENV == "local" else "https://vetbot.vercel.app"
     ]
 
     app.add_middleware(
         CORSMiddleware,
-        allow_origins="*", #todo change to only allow the frontend domain
+        allow_origins="*",
         allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],
