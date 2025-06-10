@@ -7,6 +7,7 @@ import RenderMessages from "./RenderMessages";
 import { startStreamingResponse } from "@/services/ai-chat";
 import { handleError } from "@/utils";
 import { useScrollToBottom } from "@/hooks/useScrollToBottom";
+import Recommendations from "./Recommendations";
 
 export default function Chat() {
   const [containerRef, endRef] = useScrollToBottom<HTMLDivElement>();
@@ -55,13 +56,23 @@ export default function Chat() {
     }
   };
 
+  const handleQuestionSelect = (question: string) => {
+    handleSendMessage(question);
+  };
+
   return (
-    <div className="flex flex-col h-[calc(100vh-8rem)]" ref={containerRef}>
+    <div
+      className="flex flex-col h-[calc(100vh-8rem)] relative"
+      ref={containerRef}
+    >
       <RenderMessages
         messages={messages}
         isLoading={isLoading}
         chatId={chatId}
       />
+      {messages.length < 2 && (
+        <Recommendations onQuestionSelect={handleQuestionSelect} />
+      )}
       <SendMessage onSend={handleSendMessage} isLoading={isLoading} />
       <div ref={endRef} className="h-0" />
     </div>

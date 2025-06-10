@@ -24,10 +24,11 @@ async def run_chat_engine_async(question: str, id:str) -> str:
     chat_engine = index.as_chat_engine(
     memory=chat_memory,
     verbose=True,
-    system_prompt="You are a helpful assistant that can answer questions about pet care. You are given a question and a context. You should answer the question based on the context. If you don't know the answer, say 'I don't know the answer to that question'.",
+    system_prompt="You are a helpful assistant that can answer questions about pet care. You are given a question and a context. You should answer the question based on the context.",
     # chat_mode=ChatMode.CONTEXT,
     # enabling hybrid search for more accurate results, as many questions should include a keyword from the context
-    vector_store_query_mode="hybrid"
+    vector_store_query_mode="hybrid",
+
     )
     streaming_response = await chat_engine.astream_chat(message=question)
     return streaming_response
