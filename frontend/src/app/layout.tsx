@@ -4,6 +4,7 @@ import "./globals.css";
 
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
+import WaveToast from "@/components/WaveToast";
 import { Providers } from "./providers";
 import { Toaster } from "react-hot-toast";
 
@@ -30,6 +31,7 @@ export default function RootLayout({
           className={`${poppins.className} antialiased bg-gray-50 text-gray-600`}
         >
           <Toaster position="top-center" />
+          <WaveToast />
           <div className="min-h-screen grid grid-cols-[auto_1fr] grid-rows-[auto_1fr] ">
             <div className="col-start-1 row-span-2">
               <Sidebar />

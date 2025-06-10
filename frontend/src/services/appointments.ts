@@ -7,7 +7,6 @@ export const getAppointments = async () => {
   try {
     const response = await fetch(`${API_URL}/appointments/`);
     const data = (await response.json()) as AppointmentResponse;
-    console.log(data);
     if (!data.appointments.length) {
       return null;
     }
@@ -52,7 +51,6 @@ export const updateAppointment = async (
 };
 
 export const reorderAppointments = async (newOrder: number[]) => {
-  console.log({ newOrder });
   try {
     const response = await fetch(`${API_URL}/appointments/order`, {
       method: "PUT",

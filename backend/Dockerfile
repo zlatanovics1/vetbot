@@ -28,4 +28,3 @@ ENV PATH="/app/.venv/bin:$PATH"
 ENV PYTHONPATH="/app"
 
 CMD ["uvicorn", "main:app", "--port", "8080", "--host", "0.0.0.0"]
-# CMD ["sleep", "infinity"]

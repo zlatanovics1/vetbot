@@ -21,7 +21,6 @@ async def faq(request: FaqRequest, id: str | None = None):
     Generate answer using pet care faq knowledge base
     id is used to track the conversation, if not provided, a new conversation is created
     """
-    # streaming response
     conversation_id = id if id is not None else str(uuid.uuid4())
 
     streaming_response = await run_chat_engine_async(request.question, conversation_id)

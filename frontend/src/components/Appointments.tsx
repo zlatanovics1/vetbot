@@ -29,16 +29,39 @@ export default function Appointments({
           id: "add-appointment",
         });
       },
+      onError: () => {
+        toast.error("Failed to add appointment", {
+          id: "add-appointment",
+        });
+      },
     });
   };
 
   const handleReorder = (result: Appointment[]) => {
     const ids = result.map((appointment) => appointment.id);
+    if (result.every((el, i) => el.id === appointmentsData![i].id)) return;
     reorderAppointmentsMutation.mutate(ids);
   };
 
   const handleMarkDone = (id: number) => {
-    updateAppointmentMutation.mutate({ id, data: { done: true } });
+    toast.loading("Updating appointment...", {
+      id: "update-appointment",
+    });
+    updateAppointmentMutation.mutate(
+      { id, data: { done: true } },
+      {
+        onSuccess: () => {
+          toast.success("Appointment updated successfully", {
+            id: "update-appointment",
+          });
+        },
+        onError: () => {
+          toast.error("Failed to update appointment", {
+            id: "update-appointment",
+          });
+        },
+      }
+    );
   };
 
   return (
