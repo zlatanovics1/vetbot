@@ -8,8 +8,8 @@ Tech stack/pattern choice - why?
 
 ### Frontend
 
-1. Next.js - ease of routing, SSR(small use case here to be honest)
-2. React query - automatic revalidation, easy management global async state
+1. Next.js - ease of routing, SSR(slightly irrelevant for this project)
+2. React query - automatic revalidation, easy management of global async state
 3. TailwindCSS - easy and fast styling
 
 ### Backend
@@ -18,13 +18,13 @@ Tech stack/pattern choice - why?
 
 2. Postgres - robust, reliable, JSONB support, full-text search (you will see why this is beneficial later), strong cloud support
 
-3. PG Vector (hnsw) for storing embeddings - keep data at the same point (do joins, combine queries and semantic searches), attach metadata, retrieve entities along with an embedding for > context accuracy. Works well under 2000dim (set it 1536 since it's most optimal for an openai embedding model), and you get all the native PG pros. Of course, for extremely large scale projects you would be better off with Qdrant - with extra db management :)
+3. PG Vector (hnsw) for storing embeddings - keep data at the same point (do joins, combine queries and semantic searches), attach metadata, retrieve entities along with an embedding for > context accuracy. Works well under 2000dim (set it to 1536 since it's most optimal for an openai embedding model), and you get all the native PG pros. Of course, for extremely large scale projects you would be better off with Qdrant - with extra db management
 
 4. LlamaIndex - Started off the project with custom RAG (left some commented code on purpose), but quickly realized that llama pros outweight an extra library "bloat". Llama worked extremely well with my exisiting PG setup, offered pg_vector support out of the box, and most importantly - provided hybrid search capabilities. Markdown chunking worked great for our use case.
 
-5. Hybrid Search (Going deeper into this in SysDesign Doc) - Based on the "Retrieval Relevance" Eval I put out there, using hybrid approach greatly impacted the context relevance. Why? I would say it's rather specific to this project. The nature of VetBot queries - a high change that they will contain a lot of keywords. Since this is FAQ based doc (and chunks), choosing this approach is benefical. Before hybrid, due to the somewhat irrelevant contexts, model answered using its own knowledge.
+5. Hybrid Search - Based on the "Retrieval Relevance" Eval I've put out there, using hybrid approach greatly impacted the context relevance. Why? I would say it's rather specific to this project. The nature of VetBot queries - a high change that they will contain a lot of keywords. Since this is FAQ based doc (and chunks), choosing this approach is benefical. Before hybrid, due to the somewhat irrelevant contexts, model answered using its own knowledge.
 
-6. Evals - the RR eval is the most imporant one here (nature of the docs and project itself), altough in the future I would love to add Groundedness evals and automate scoring - for better prompt, chunking, etc iterations
+6. Evals - the RR eval is the most imporant one here (nature of the docs and project itself), altough in the future I would add Groundedness evals and automate scoring - for better prompt, chunking, and other iterations
 
 ### GenAI
 
